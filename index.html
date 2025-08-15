@@ -10,7 +10,15 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #4b0082, #0000cd);
       color: white;
+      animation: fadeIn 1s ease-in;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     header {
       background-color: rgba(0, 0, 0, 0.7);
       padding: 1rem;
@@ -19,35 +27,52 @@
       font-weight: bold;
       color: #ffffff;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      border-bottom: 2px solid #e0e0ff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
+
     .tool-container {
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
       padding: 1.5rem;
     }
+
     @media (min-width: 600px) {
       .tool-container {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
     }
+
     .tool-box {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
       padding: 1.5rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
+
     .tool-box:hover {
       transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     }
+
     .tool-box img {
       width: 100%;
       height: auto;
       max-height: 200px;
       object-fit: cover;
       border-radius: 10px;
+      transition: transform 0.3s ease;
     }
+
+    .tool-box:hover img {
+      transform: scale(1.1);
+    }
+
     .tool-title {
       font-size: 1.6rem;
       margin: 1rem 0 0.5rem;
@@ -55,26 +80,38 @@
       text-decoration: none;
       display: inline-block;
       font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
+
     .tool-title:hover {
       text-decoration: underline;
+      color: #ffcc00;
     }
+
     .tool-desc {
       font-size: 1rem;
       margin-bottom: 0.8rem;
       color: #f0f0f0;
     }
+
     .advantages {
       list-style: square;
       padding-left: 1.2rem;
       color: #d0e0ff;
     }
+
     footer {
       text-align: center;
       padding: 1rem;
       background-color: rgba(0, 0, 0, 0.7);
       font-size: 0.9rem;
       color: #aaa;
+      border-top: 2px solid #e0e0ff;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
@@ -99,7 +136,7 @@
     <!-- FaceMomo -->
     <div class="tool-box">
       <a class="tool-title" href="https://github.com/Maga-333/FaceMomo" target="_blank">📸 FaceMomo</a>
-      <b><P>Soft on Style, Strong on Security</P></b>
+      <b><p>Soft on Style, Strong on Security</p></b>
       <p class="tool-desc">
         Smart Face Detection System – Differentiates known and unknown faces using face recognition. Alerts with sound and logs unknown visitors. Can send alerts via email.
       </p>
@@ -113,7 +150,7 @@
       </ul>
     </div>
 
-     <!-- Mochi -->
+    <!-- Mochi -->
     <div class="tool-box">
       <a class="tool-title" href="https://github.com/Maga-333/Mochi" target="_blank">🍡 Mochi</a>
       <b><p>Sweet & Smart Background Process Scanner</p></b>
