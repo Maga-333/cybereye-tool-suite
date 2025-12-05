@@ -5,13 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CybeREye Tools Showcase</title>
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #4b0082, #0000cd);
       color: white;
       animation: fadeIn 1s ease-in;
-      overflow-x: hidden; /* Prevent horizontal scroll */
+      overflow-x: hidden;
     }
 
     @keyframes fadeIn {
@@ -31,16 +38,41 @@
     }
 
     .tool-container {
+      flex: 1;
       display: grid;
-      grid-template-columns: 1fr;
+      justify-content: center;
       gap: 2rem;
       padding: 1.5rem;
+      grid-template-columns: 1fr;
     }
 
-    @media (min-width: 600px) {
+    @media (max-width: 599px) {
+      .tool-box { width: 95%; }
+    }
+
+    @media (min-width: 600px) and (max-width: 900px) {
       .tool-container {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, minmax(260px, 380px));
       }
+    }
+
+    @media (min-width: 901px) and (max-width: 1366px) {
+      .tool-container {
+        grid-template-columns: repeat(2, minmax(300px, 450px));
+      }
+    }
+
+    @media (min-width: 1367px) and (max-width: 1920px) {
+      .tool-container {
+        grid-template-columns: repeat(2, minmax(350px, 520px));
+      }
+    }
+
+    @media (min-width: 1921px) {
+      .tool-container {
+        grid-template-columns: repeat(2, minmax(450px, 600px));
+      }
+      header { font-size: 2.8rem; }
     }
 
     .tool-box {
@@ -49,8 +81,6 @@
       padding: 1.5rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
 
     .tool-box:hover {
@@ -59,25 +89,11 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     }
 
-    .tool-box img {
-      width: 100%;
-      height: auto;
-      max-height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .tool-box:hover img {
-      transform: scale(1.1);
-    }
-
     .tool-title {
       font-size: 1.6rem;
       margin: 1rem 0 0.5rem;
       color: #e0e0ff;
       text-decoration: none;
-      display: inline-block;
       font-weight: bold;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
@@ -104,24 +120,22 @@
       background-color: rgba(0, 0, 0, 0.7);
       font-size: 0.9rem;
       color: #aaa;
+      margin-top: auto;
+      width: 100%;
     }
 
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
-    }
   </style>
 </head>
+
 <body>
   <header>⚔️ CybeREye Tool Suite – Showcasing Our Cyber Security Arsenal</header>
+
   <div class="tool-container">
     <!-- ShadowWall -->
     <div class="tool-box">
       <a class="tool-title" href="https://github.com/Maga-333/ShadowWall" target="_blank">🛡️ ShadowWall</a>
       <b><p>Real Time Fake Login Blocker</p></b>
-      <p class="tool-desc">
-        Real-time Fake Login Page Detector – Blocks password submissions on suspicious sites, highlights redirections, and alerts users visually before login.
-      </p>
+      <p class="tool-desc">Real-time Fake Login Page Detector – Blocks password submissions on suspicious sites, highlights redirections, and alerts users visually before login.</p>
       <ul class="advantages">
         <li>Cross-browser protection</li>
         <li>Blocks phishing attacks</li>
@@ -134,9 +148,7 @@
     <div class="tool-box">
       <a class="tool-title" href="https://github.com/Maga-333/FaceMomo" target="_blank">📸 FaceMomo</a>
       <b><p>Soft on Style, Strong on Security</p></b>
-      <p class="tool-desc">
-        Smart Face Detection System – Differentiates known and unknown faces using face recognition. Alerts with sound and logs unknown visitors. Can send alerts via email.
-      </p>
+      <p class="tool-desc">Smart Face Detection System – Differentiates known and unknown faces using face recognition. Alerts with sound and logs unknown visitors. Can send alerts via email.</p>
       <ul class="advantages">
         <li>Real-time face recognition</li>
         <li>Plays alerts for strangers</li>
@@ -150,9 +162,7 @@
     <div class="tool-box">
       <a class="tool-title" href="https://github.com/Maga-333/Mochi" target="_blank">🍡 Mochi</a>
       <b><p>Sweet & Smart Background Process Scanner</p></b>
-      <p class="tool-desc">
-        Mochi is a smart and lightweight background process scanner that continuously monitors active system processes, detects suspicious behavior, and provides real-time alerts with simple reports.
-      </p>
+      <p class="tool-desc">Mochi is a smart and lightweight background process scanner that continuously monitors active system processes, detects suspicious behavior, and provides real-time alerts with simple reports.</p>
       <ul class="advantages">
         <li>Runs silently in the background</li>
         <li>Monitors active system processes</li>
@@ -166,9 +176,7 @@
     <div class="tool-box">
       <a class="tool-title" href="https://github.com/Maga-333/Picklu" target="_blank">🧠 Picklu</a>
       <b><p>USB Forensics & Error File Scanner</p></b>
-      <p class="tool-desc">
-        USB File Analyzer – Automatically scans USB files, removes hacker files based on keyword detection, and classifies files as dangerous or safe.
-      </p>
+      <p class="tool-desc">USB File Analyzer – Automatically scans USB files, removes hacker files based on keyword detection, and classifies files as dangerous or safe.</p>
       <ul class="advantages">
         <li>Auto USB file scan</li>
         <li>Removes malicious files</li>
@@ -176,7 +184,10 @@
         <li>Lightweight and fast</li>
       </ul>
     </div>
+
   </div>
+
   <footer>© 2025 Nitharshana N, Lithika V, Tharani C – All Rights Reserved | CybeREye Tools</footer>
+
 </body>
 </html>
