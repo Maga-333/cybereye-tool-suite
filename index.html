@@ -113,9 +113,12 @@
       padding-left: 1.2rem;
       color: #d0e0ff;
     }
-    .tool-container .tool-box:last-child {
-      justify-self: center;
+     .picklu-center {
+      grid-column: 1 / -1;   /* take full row */
+      justify-self: center; /* center the box */
+      max-width: 450px;     /* control width */
     }
+
 
     footer {
       text-align: center;
@@ -208,7 +211,7 @@
     </div>
 
     <!-- Picklu -->
-    <div class="tool-box">
+    <div class="tool-box picklu-center">
       <a class="tool-title" href="https://github.com/Maga-333/Picklu" target="_blank">🧠 Picklu</a>
       <b><p>USB Forensics & Error File Scanner</p></b>
       <p class="tool-desc">
